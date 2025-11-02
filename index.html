@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DaDon - Digital Skills Trainer, Web Developer, and Graphic Designer." />
+  <title>DaDon | Digital Skills Trainer & Designer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-SzlrxWriC3zE4yO9WnF9sQp6M3E1+9B+6l3L0wzsmrV+jw2J8W9xd6pRg5N2x+YQw1bU6bBz8p4n6r9O1v9B1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+
+<body>
+  <!-- 🧭 Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="DaDon Logo" />
+        <span>DaDon</span>
+      </div>
+
+      <!-- Hamburger Icon for Mobile -->
+      <div class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about/index.html">About</a></li>
+        <li><a href="portfolio/index.html">Projects</a></li>
+        <li><a href="blog/index.html">My Blogs</a></li>
+        <li><a href="contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🦸 Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Hi, I’m <span>Johnson Murimi</span></h1>
+        <h2>
+          Digital Skills Trainer • Online Tutor • Data Analyst • 
+          Cyber Security Enthusiast • Digital Marketer • Web Developer • Graphic Designer
+        </h2>
+        <p>
+          I empower individuals and businesses through digital skills, creative design,
+          and modern web solutions. Let’s build something impactful together.
+        </p>
+        <a href="portfolio.html" class="btn">View My Work</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="assets/images/profile.jpg" alt="Johnson Murimi" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 📰 Blog Preview Section -->
+  <section class="blog-section" id="blog">
+    <h1>Latest from My Blog</h1>
+    <p>Insights, tutorials, and stories from my digital journey.</p>
+
+    <div id="blog-grid" class="blog-grid">
+      <p>Loading latest posts...</p>
+    </div>
+
+    <div class="blog-btn-container">
+      <a href="blog/" class="btn">See All Blogs</a>
+    </div>
+  </section>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 DaDon. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/donjm/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/donjm" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:murimijohnson254@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="tel:+254758316818" aria-label="Phone">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🧠 Blogger Feed Script -->
+  <script defer>
+    const blogGrid = document.getElementById("blog-grid");
+
+    function loadBloggerFeed(json) {
+      blogGrid.innerHTML = "";
+      const posts = json.feed?.entry || [];
+
+      if (!posts.length) {
+        blogGrid.innerHTML = "<p>Failed to load posts. Please try again later.</p>";
+        return;
+      }
+
+      posts.slice(0, 3).forEach(post => {
+        const title = post.title?.$t || "Untitled Post";
+        const link = post.link.find(l => l.rel === "alternate")?.href || "#";
+        const content = post.content ? post.content.$t : "";
+        const snippet = content.replace(/<[^>]+>/g, "").substring(0, 120) + "...";
+
+        // Extract first image
+        const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+        const thumbnail = imgMatch ? imgMatch[1] : "assets/images/default-blog.jpg";
+
+        const article = document.createElement("article");
+        article.classList.add("blog-card");
+        article.innerHTML = `
+          <img src="${thumbnail}" alt="${title}" loading="lazy" />
+          <h3>${title}</h3>
+          <p>${snippet}</p>
+          <a href="${link}" target="_blank" class="btn">Read More</a>
+        `;
+        blogGrid.appendChild(article);
+      });
+    }
+
+    // Load Blogger Feed
+    const script = document.createElement("script");
+    script.src = "https://onlineworkhustler.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadBloggerFeed";
+    document.body.appendChild(script);
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+      menuToggle.innerHTML = navbar.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+  </script>
+  <!-- Main Script -->
+<script src="assets/js/script.js" defer></script>
+</body>
+</html>

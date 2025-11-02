@@ -1,0 +1,356 @@
+/* ==========================================
+   📰 DaDon Blog Page — Final Responsive CSS
+   ========================================== */
+
+/* ===== Theme Variables ===== */
+:root {
+  --primary: #0b0c10;
+  --secondary: #1f2833;
+  --accent: #66fcf1;
+  --text-light: #c5c6c7;
+  --text-dark: #45a29e;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text-light);
+  line-height: 1.7;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   🧭 Navbar — Unified Responsive Style
+   ========================================== */
+header {
+  background: var(--secondary);
+  padding: 0.75rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: var(--transition);
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent);
+}
+
+/* Hamburger (Mobile) */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background: var(--secondary);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    transform: translateY(-200%);
+    opacity: 0;
+    transition: all 0.35s ease;
+  }
+
+  .navbar.active .nav-links {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   📰 Blog Section — Responsive Grid
+   ========================================== */
+.blog-section {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--primary);
+}
+
+.blog-section h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.blog-section p {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ===== Blog Grid ===== */
+#blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* ===== Blog Card ===== */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: var(--transition);
+  max-width: 360px;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.blog-card:nth-child(n) {
+  animation-delay: calc(0.1s * var(--i, 1));
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* ===== Image ===== */
+.blog-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(80%);
+}
+
+/* ===== Blog Content ===== */
+.blog-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.4rem 1.2rem;
+  text-align: left;
+}
+
+.blog-content h3 {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.blog-content p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+/* ===== Read More Button ===== */
+.blog-content .btn {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.blog-content .btn:hover {
+  background: var(--text-dark);
+  color: var(--white);
+}
+
+/* ==========================================
+   🟢 WhatsApp Floating Button
+   ========================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+  z-index: 2000;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+}
+
+/* ==========================================
+   🦶 Footer
+   ========================================== */
+footer {
+  background: var(--secondary);
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  box-shadow: 0 -2px 8px var(--shadow);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.socials a {
+  color: var(--accent);
+  font-size: 1.4rem;
+  transition: var(--transition);
+}
+
+.socials a:hover {
+  color: var(--white);
+  transform: scale(1.15);
+}
+
+/* ==========================================
+   📱 Responsive
+   ========================================== */
+@media (max-width: 992px) {
+  #blog-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .blog-section h1 {
+    font-size: 2rem;
+  }
+
+  .blog-card img {
+    height: 200px;
+  }
+
+  .blog-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-section p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* ==========================================
+   🎞️ Animations
+   ========================================== */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

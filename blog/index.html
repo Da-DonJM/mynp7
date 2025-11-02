@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== Meta & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DaDon’s Blog — Explore insights, tutorials, and stories on digital skills, online work, and creative technology." />
+  <title>My Blog | DaDon</title>
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="../assets/css/blog.css" />
+
+  <!-- ===== Font Awesome ===== -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  /><!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== Meta & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DaDon’s Blog — Explore insights, tutorials, and stories on digital skills, online work, and creative technology." />
+  <title>My Blog | DaDon</title>
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="../assets/css/blog.css" />
+
+  <!-- ===== Font Awesome ===== -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+
+<body>
+  <!-- 🧭 Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="DaDon Logo" />
+        <span>DaDon</span>
+      </div>
+
+      <!-- Hamburger Icon (for mobile) -->
+      <div class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../portfolio/index.html">Projects</a></li>
+        <li><a href="../blog/index.html" class="active">My Blogs</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 📰 Blog Section -->
+  <section class="blog-section" id="blog">
+    <h1>My Blog</h1>
+    <p>
+      Fresh insights from <strong>Online Work Hustler</strong> — 
+      sharing stories, strategies, and guides to help you thrive 
+      in the digital workspace.
+    </p>
+
+    <!-- Blog Posts Grid -->
+    <div id="blog-container" class="blog-grid">
+      <p>Loading latest posts...</p>
+    </div>
+  </section>
+
+  <!-- 🟢 WhatsApp Floating Button -->
+  <a href="https://wa.me/254758316818" 
+     class="whatsapp-float" 
+     target="_blank" 
+     aria-label="Chat with DaDon on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 DaDon. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/donjm/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/donjm" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:murimijohnson254@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Blogger Feed Script ===== -->
+  <script src="../assets/js/blog.js" defer></script>
+
+  <!-- ===== Mobile Navbar Toggle ===== -->
+  <script defer>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+      menuToggle.innerHTML = navbar.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+  </script>
+</body>
+</html>
+
+</head>
+
+<body>
+  <!-- 🧭 Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="DaDon Logo" />
+        <span>DaDon</span>
+      </div>
+
+      <!-- Hamburger Icon (for mobile) -->
+      <div class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+          <li><a href="../index.html" class="active">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../portfolio/index.html">Projects</a></li>
+        <li><a href="../blog/index.html">My Blogs</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 📰 Blog Section -->
+  <section class="blog-section" id="blog">
+    <h1>My Blog</h1>
+    <p>
+      Fresh insights from <strong>Online Work Hustler</strong> — 
+      sharing stories, strategies, and guides to help you thrive 
+      in the digital workspace.
+    </p>
+
+    <!-- Blog Posts Grid -->
+    <div id="blog-container" class="blog-grid">
+      <p>Loading latest posts...</p>
+    </div>
+  </section>
+
+  <!-- 🟢 WhatsApp Floating Button (optional) -->
+  <a href="https://wa.me/254758316818" 
+     class="whatsapp-float" 
+     target="_blank" 
+     aria-label="Chat with DaDon on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 DaDon. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/donjm/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/donjm" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:murimijohnson254@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script src="../assets/js/script.js" defer></script>
+  <script src="../assets/js/blog.js" defer></script>
+</body>
+</html>

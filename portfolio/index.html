@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== Meta & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DaDon Portfolio — Web Development, Digital Design, and Creative Works." />
+  <title>Portfolio | DaDon</title>
+
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+
+  <!-- ===== Font Awesome ===== -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+
+<body>
+  <!-- 🧭 Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="DaDon Logo" />
+        <span>DaDon</span>
+      </div>
+
+      <!-- Hamburger Icon for Mobile -->
+      <div class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../portfolio/index.html" class="active">Projects</a></li>
+        <li><a href="../blog/index.html">My Blogs</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 💼 Portfolio Section -->
+  <section class="portfolio">
+    <h1>My Portfolio</h1>
+    <p>
+      Explore my latest work — from sleek web applications and stunning digital designs 
+      to training sessions empowering learners with digital skills.
+    </p>
+
+    <!-- 🌐 Web Development Projects -->
+    <h2><i class="fa-solid fa-code"></i> Web Development</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/web1.png" alt="Business Website" />
+        <div class="overlay"><h3>Business Website</h3></div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/personal.jpg" alt="Personal Portfolio" />
+        <div class="overlay"><h3>Personal Portfolio</h3></div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/web2.png" alt="Non-Profit Platform" />
+        <div class="overlay"><h3>Non-Profit Platform</h3></div>
+      </div>
+    </div>
+
+    <!-- 🎨 Graphic Design -->
+    <h2><i class="fa-solid fa-palette"></i> Graphic Design</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/logo.jpg" alt="Logo Design" />
+        <div class="overlay"><h3>Logo Design</h3></div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/event.jpeg" alt="Event Poster" />
+        <div class="overlay"><h3>Event Poster</h3></div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/brandkit.webp" alt="Brand Kit" />
+        <div class="overlay"><h3>Brand Kit</h3></div>
+      </div>
+    </div>
+
+    <!-- 💻 Digital Training -->
+    <h2><i class="fa-solid fa-chalkboard-user"></i> Digital Skills Training</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/skills.jpg" alt="Online Skills Workshop" />
+        <div class="overlay"><h3>Online Skills Workshop</h3></div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../assets/images/portfolio/ict.png" alt="ICT Class Session" />
+        <div class="overlay"><h3>ICT Class Session</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔍 Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Portfolio Preview" />
+    <div class="caption" id="caption"></div>
+  </div>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 DaDon. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/donjm/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/donjm" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:murimijohnson254@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="tel:+254758316818" aria-label="Phone">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Lightbox JS ===== -->
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const caption = document.getElementById("caption");
+    const close = document.querySelector(".close");
+
+    document.querySelectorAll(".portfolio-item img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        caption.textContent = img.alt;
+      });
+    });
+
+    close.addEventListener("click", () => (lightbox.style.display = "none"));
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.style.display = "none";
+    });
+  </script>
+
+  <!-- ===== Mobile Navbar Toggle ===== -->
+  <script defer>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+      menuToggle.innerHTML = navbar.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+  </script>
+
+  <!-- ===== Optional External JS ===== -->
+  <script src="../assets/js/script.js" defer></script>
+</body>
+</html>
